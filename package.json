@@ -2,7 +2,8 @@
   "name": "find_developers",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^3.4.1"
+    "@rails/webpacker": "^3.4.1",
+    "eslint-config-airbnb": "^16.1.0"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
