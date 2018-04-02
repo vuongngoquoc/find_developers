@@ -22,6 +22,7 @@ gem 'webpacker'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'bundler-audit', require: false
+  gem 'brakeman', require: false
 end
 
 group :development do
