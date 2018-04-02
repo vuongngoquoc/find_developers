@@ -1,4 +1,6 @@
 AllCops:
+  Exclude:
+    - 'vendor/**/*'
   DisplayCopNames: true
   Include:
     - Rakefile
