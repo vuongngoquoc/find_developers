@@ -1,4 +1,4 @@
 class DevLang < ApplicationRecord
-  belongs_to :developers
-  belongs_to :languages
+  belongs_to :developer
+  belongs_to :language
 end
