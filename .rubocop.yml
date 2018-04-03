@@ -1,6 +1,8 @@
 AllCops:
   Exclude:
     - 'vendor/**/*'
+    - 'yarn.lock'
+    - 'yarn-error.log'
   DisplayCopNames: true
   Include:
     - Rakefile
