@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180404040724) do
+ActiveRecord::Schema.define(version: 20180404065146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "developer_languages", force: :cascade do |t|
+    t.bigint "developer_id"
+    t.bigint "language_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["developer_id", "language_id"], name: "idx_developer_languages", unique: true
+    t.index ["developer_id"], name: "index_developer_languages_on_developer_id"
+    t.index ["language_id"], name: "index_developer_languages_on_language_id"
+  end
 
   create_table "developer_programming_languages", force: :cascade do |t|
     t.bigint "developer_id"
@@ -47,6 +57,8 @@ ActiveRecord::Schema.define(version: 20180404040724) do
     t.index ["name"], name: "index_programming_languages_on_name", unique: true
   end
 
+  add_foreign_key "developer_languages", "developers"
+  add_foreign_key "developer_languages", "languages"
   add_foreign_key "developer_programming_languages", "developers"
   add_foreign_key "developer_programming_languages", "programming_languages"
 end
