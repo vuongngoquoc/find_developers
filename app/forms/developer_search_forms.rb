@@ -17,7 +17,7 @@ class DeveloperSearchForms
 
   def initialize(params)
     @developer_search_forms = params[:developer_search_forms] || {}
-    FORM_FIELDS.each { |f| send("#{f}=", @developer_search_forms) }
+    FORM_FIELDS.each { |f| send("#{f}=", @developer_search_forms[f]) }
   end
 
   def search
