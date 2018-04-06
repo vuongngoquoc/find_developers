@@ -19,6 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'rubocop'
 gem 'webpacker'
 gem 'virtus'
+gem 'bootstrap'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

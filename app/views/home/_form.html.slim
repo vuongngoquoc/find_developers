@@ -1,24 +1,26 @@
-h4 Search Developers by Language and Programming Language
+h4 Search Developers
 
 = form_for @form, url: '/', method: :get do |f|
   .form-group.row
     = f.label :language_code, 'Language ', class: 'col-sm-3 col-form-label'
     = f.text_field :language_code
   .form-group.row
-    = f.label :programming_language_name, 'Programming Language'
+    = f.label :programming_language_name, 'Programming Language', class: 'col-sm-3 col-form-label'
     = f.text_field :programming_language_name
-  .actions = f.submit 'Search'
+  .actions = f.submit 'Search', class: 'btn btn-primary'
 br
 - if @developers
-  table
-  thead
-    tr
-      th Name
-      th Email
-
-  tbody
-    - @developers.each do |developer|
+  table.table.table-hover
+    thead
       tr
-        td = developer.name
-        td = developer.email
+        th Email
+        th Programming Language
+        th Languages
+
+    tbody
+      - @developers.each do |d|
+        tr
+          td = d.email
+          td = ''
+          td = d.languages.each do |l|
 
