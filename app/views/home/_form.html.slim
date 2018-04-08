@@ -1,0 +1,34 @@
+h4 Search Developers
+
+= form_for @form, url: '/', method: :get do |f|
+  .form-group.row
+    = f.label :language_code, 'Language ', class: 'col-sm-3 col-form-label'
+    = f.text_field :language_code
+  .form-group.row
+    = f.label :programming_language_name, 'Programming Language', class: 'col-sm-3 col-form-label'
+    = f.text_field :programming_language_name
+  .actions = f.submit 'Search', class: 'btn btn-primary'
+br
+- if @developers
+  table.table.table-hover
+    thead
+      tr
+        th Email
+        th Programming Language
+        th Languages
+
+    tbody
+      - @developers.each do |d|
+        tr
+          td = d.email
+          td
+            - d.programming_languages.each do |p|
+              = p.name
+              - unless p == d.programming_languages.last
+                = ', '
+          td
+            - d.languages.each do |l|
+              = l.code
+              - unless l == d.languages.last
+                = ', '
+
