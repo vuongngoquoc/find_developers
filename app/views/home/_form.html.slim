@@ -21,6 +21,14 @@ br
       - @developers.each do |d|
         tr
           td = d.email
-          td = ''
-          td = d.languages.each do |l|
+          td
+            - d.programming_languages.each do |p|
+              = p.name
+              - unless p == d.programming_languages.last
+                = ', '
+          td
+            - d.languages.each do |l|
+              = l.code
+              - unless l == d.languages.last
+                = ', '
 

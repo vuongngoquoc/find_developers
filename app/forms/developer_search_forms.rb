@@ -23,7 +23,7 @@ class DeveloperSearchForms
   def search
     return Developer.none if @developer_search_forms.empty?
 
-    query = Developer.all
+    query = Developer.includes(:languages, :programming_languages)
     query = search_by_language(query) if @developer_search_forms[:language_code].present?
     query = search_by_programming_language(query) if @developer_search_forms[:programming_language_name].present?
     query
@@ -33,17 +33,11 @@ class DeveloperSearchForms
 
   def search_by_language(query)
     query.joins(:languages)
-         .where(
-            'languages.code=?',
-            @developer_search_forms[:language_code]
-          )
+         .where('languages.code=?', @developer_search_forms[:language_code])
   end
 
   def search_by_programming_language(query)
     query.joins(:programming_languages)
-         .where(
-            'programming_languages.name=?',
-            @developer_search_forms[:programming_language_name]
-          )
+         .where('programming_languages.name=?', @developer_search_forms[:programming_language_name])
   end
 end
