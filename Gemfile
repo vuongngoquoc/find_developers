@@ -6,7 +6,6 @@ git_source(:github) do |repo_name|
 end
 
 gem 'coffee-rails', '~> 4.2'
-gem 'factory_bot_rails'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
@@ -25,6 +24,8 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'bundler-audit', require: false
   gem 'brakeman', require: false
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
